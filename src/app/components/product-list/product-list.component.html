@@ -1,1 +1,34 @@
-<p>product-list works!</p>
+<div class="product-list-container">
+    <h2>Products</h2>
+    
+    <div *ngIf="loading" class="loading">
+      Loading products...
+    </div>
+  
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+  
+    <div *ngIf="!loading && !error" class="products-grid">
+      <app-product-card 
+        *ngFor="let product of paginatedProducts"
+        [product]="product">
+      </app-product-card>
+    </div>
+  
+    <div *ngIf="showPagination" class="pagination">
+      <button 
+        (click)="previousPage()" 
+        [disabled]="currentPage === 1"
+        class="pagination-button">
+        Previous
+      </button>
+      <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button 
+        (click)="nextPage()" 
+        [disabled]="currentPage === totalPages"
+        class="pagination-button">
+        Next
+      </button>
+    </div>
+  </div>
