@@ -3,7 +3,7 @@
 This repository was made as an example using RxJS to be a part of my portfolio of resources I am presenting.
 
 # Presentation
-![This is an screenshot of the project running]https://herus02.github.io/angular-products-list-api/img/example.png)
+![This is an screenshot of the project running](https://herus02.github.io/angular-products-list-api/img/example.png)
 **I recommend to pause your Ad Block extension before clicking!**
 You can check the project running on Github Pages: [show me!](https://herus02.github.io/angular-products-list-api/)
 
