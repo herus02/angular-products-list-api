@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
@@ -12,6 +12,7 @@ import { Product } from '../../models/product.model';
   imports: [CommonModule, ProductCardComponent]
 })
 export class ProductListComponent implements OnInit {
+  private productService: ProductService;
   products: Product[] = [];
   loading = true;
   error: string | null = null;
@@ -21,7 +22,9 @@ export class ProductListComponent implements OnInit {
   itemsPerPage = 2;
   totalPages = 0;
 
-  constructor(private productService: ProductService) {}
+  constructor() {
+    this.productService = inject(ProductService);
+  }
 
   ngOnInit(): void {
     this.loadProducts();
